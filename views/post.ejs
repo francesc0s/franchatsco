@@ -37,7 +37,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-    <ul class="row list-unstyled">
+    <ul class="col list-unstyled">
       <% for(var i=0; i<comments.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
           "<%= comments[i].comment %>" -<%= comments[i].author.userName%>
@@ -57,6 +57,14 @@
               class="col-3"
             >
               <button class="btn btn-primary fa fa-trash" type="submit"></button>
+            </form>
+            <%} else { %>
+              <form
+              action="/comments/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+              method="POST"
+              class="col-3"
+            >
+              <button class="invisible" type="submit"></button>
             </form>
             <%}%>
           </div>
